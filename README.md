@@ -4,5 +4,5 @@
 shiqi: worked on RecipeForm.js, RecipeDetails.js, Navbar.js
 sarah: worked on RecipeDetails.js, Navbar.js, Home.js
 zic: worked on Authcontext.js, test.js, useLogout.js
-danial: worked on
+danial: worked on useLogin.js, useSignup.js
 anaqy: worked on useAuthContext.js 
