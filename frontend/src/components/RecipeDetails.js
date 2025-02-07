@@ -8,7 +8,7 @@ const RecipeDetails = ({ recipe }) => {
 
   const handleClick = async () => {
     if (!user) {
-      return;
+      return; // Prevent deletion if user is not logged in
     }
 
     const response = await fetch(`/api/recipes/${recipe._id}`, {
@@ -32,7 +32,11 @@ const RecipeDetails = ({ recipe }) => {
       <p><strong>Preparation Time:</strong> {recipe.prepTime} minutes</p>
       <p><strong>Difficulty:</strong> {recipe.difficulty}</p>
       <p>{formatDistanceToNow(new Date(recipe.createdAt), { addSuffix: true })}</p>
-      <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+      {user && (
+        <span className="material-symbols-outlined" onClick={handleClick}>
+          delete
+        </span>
+      )}
     </div>
   );
 };

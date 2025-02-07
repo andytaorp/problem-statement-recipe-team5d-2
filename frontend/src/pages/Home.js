@@ -1,27 +1,23 @@
-import { useEffect } from "react"
-import { useAuthContext} from "../hooks/useAuthContext"
-
-// components
-import RecipeDetails from "../components/RecipeDetails"
-import RecipeForm from "../components/RecipeForm"
+import { useEffect } from "react";
+import { useRecipesContext } from "../hooks/useRecipeContext";
+import RecipeDetails from "../components/RecipeDetails";
+import RecipeForm from "../components/RecipeForm";
 
 const Home = () => {
-  const { recipes, dispatch } = useRecipesContext()
+  const { recipes, dispatch } = useRecipesContext();
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/recipes`
-      )
-      const json = await response.json()
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/recipes`);
+      const json = await response.json();
 
       if (response.ok) {
-        dispatch({type: 'SET_RECIPES', payload: json})
+        dispatch({ type: 'SET_RECIPES', payload: json });
       }
-    }
+    };
 
-    fetchRecipes()
-  }, [dispatch])
+    fetchRecipes();
+  }, [dispatch]);
 
   return (
     <div className="home">
@@ -32,7 +28,7 @@ const Home = () => {
       </div>
       <RecipeForm />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

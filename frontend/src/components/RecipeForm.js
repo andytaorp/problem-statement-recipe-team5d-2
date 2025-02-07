@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { useRecipeContext } from "../hooks/useRecipeContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -104,15 +102,4 @@ const RecipeForm = () => {
     );
 };
 
-const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/add" element={<RecipeForm />} />
-            </Routes>
-        </Router>
-    );
-};
-
-export default App;
+export default RecipeForm;
